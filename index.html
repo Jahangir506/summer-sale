@@ -1,16 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Summer Sale</title>
+    <!-- tailwind and daisy  -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- google fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- google style -->
+    <style>
+      body {
+        font-family: "Work Sans", sans-serif;
+      }
+    </style>
   </head>
   <body>
-    <header>
-
+    <header class="bg-[#F9F6E2] h-[773px]">
+      <!-- banner section start  -->
+      <section
+        class="container mx-auto flex flex-col-reverse md:flex-row lg:flex-row justify-around items-center"
+      >
+        <div>
+          <div class="card card-normal">
+            <div class="card-body items-center text-center">
+              <h2 class="card-title">--SALE FEVER--</h2>
+              <p class="text-3xl lg:text-6xl font-bold my-3 lg:my-5">
+                Purchase TK 200 or <br />
+                above & get
+                <span class="text-[#E527B2]">20% off</span>
+              </p>
+              <div class="card-actions items-center">
+                <p>Use Promo Code</p>
+                <p
+                  class="px-2 py-1 bg-[#E527B2] hover:bg-[#f542bf] rounded text-white"
+                >
+                  SELL200
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <img
+            src="images/Summer 1.png"
+            class="w-72 md:w-96 lg:w-full"
+            alt=""
+            srcset=""
+          />
+        </div>
+      </section>
+      <!-- banner section end  -->
     </header>
-    <main>
-        
-    </main>
+    <main></main>
   </body>
 </html>
