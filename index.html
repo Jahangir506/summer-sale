@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Summer Sale</title>
+    <!-- fontAwesome  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- tailwind and daisy  -->
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css"
@@ -539,14 +547,19 @@
                 </button>
               </div>
             </div>
-            <div class="card w-80 bg-base-100 shadow-md py-6 mt-4 h-[450px]">
+            <div class="card w-80 bg-base-100 shadow-md pb-6 mt-4 h-[450px]">
               <!-- card items list  -->
+
               <div>
+                <div class="flex justify-end p-4 opacity-50">
+                  <i id="refresh" class="fa-solid fa-arrows-rotate"></i>
+                </div>
                 <div
                   id="items-name-container"
                   class="p-4 text-lg font-medium"
                 ></div>
               </div>
+
               <!-- calculation  -->
               <div class="card-body justify-end py-0">
                 <div class="border-t border-b text-lg font-medium mt-4 p-4">

@@ -13,6 +13,7 @@ function handleClickCardBody(cardBodyClick){
    const itemPrice =  cardBodyClick.parentNode.childNodes[1].childNodes[3].childNodes[5].innerText.split(" ")[0]
    const total = totalPrice + parseFloat(itemPrice)
    totalPriceElement.innerText = total;
+   
 
 
    if(total > 200){
@@ -31,12 +32,22 @@ function handleClickCardBody(cardBodyClick){
    p.innerHTML = `
        ${count +1}. ${itemName}
    `
-   itemsNameContainer.appendChild(p);
+   
+   if(itemsNameContainer.childElementCount < 8){
+    itemsNameContainer.appendChild(p);
+   }else{
+    alert('Please 8 ta items er opop add kora jabe na')
+    return;
+   }
+   
+
+
    return totalPrice;
 
 }
 
 document.getElementById('coupon-btn').addEventListener('click', function(){
+    const couponField = document.getElementById('coupon-field')
     const totalDiscountPrice = document.getElementById('discount-price')
     const totalElementText = document.getElementById('total-discount')
 
@@ -45,11 +56,13 @@ document.getElementById('coupon-btn').addEventListener('click', function(){
     totalPrice = parseFloat(totalPriceString)
 
     const discount = totalPrice * 20 / 100;
-
-    totalDiscountPrice.innerText = discount;
-
     const totalDiscount = totalPrice - discount;
-    totalElementText.innerText = totalDiscount
+
+    if(couponField.value === 'SELL200'){
+        totalDiscountPrice.innerText = discount;
+        totalElementText.innerText = totalDiscount
+        couponField.value = '';
+    }
 
 })
 
@@ -57,6 +70,10 @@ document.getElementById('home-btn').addEventListener('click', function(){
     location.reload();
 })
 
+document.getElementById('refresh').addEventListener('click', function(){
+    location.refresh()
+})
+    
 // function my_modal_5(){
 //     document.getElementById('my_modal_5').style.display = ''
 // }
