@@ -1,13 +1,19 @@
-let total = 0;
+let totalPrice = 0;
 function handleClickCardBody(cardBodyClick){
-    const totalPrice = document.getElementById('total-price')
+    totalPrice = 0;
+    const totalPriceElement = document.getElementById('total-price')
+    const totalPriceString = totalPriceElement.innerText;
+    totalPrice = parseFloat(totalPriceString)
+
+
     const makePurchaseBtn = document.getElementById('make-purchase-btn')
 
     const couponBtn = document.getElementById('coupon-btn')
 
    const itemPrice =  cardBodyClick.parentNode.childNodes[1].childNodes[3].childNodes[5].innerText.split(" ")[0]
-   total = parseFloat(total) + parseFloat(itemPrice)
-   totalPrice.innerText = total;
+   const total = totalPrice + parseFloat(itemPrice)
+   totalPriceElement.innerText = total;
+
 
    if(total > 200){
     makePurchaseBtn.removeAttribute('disabled')
@@ -26,14 +32,31 @@ function handleClickCardBody(cardBodyClick){
        ${count +1}. ${itemName}
    `
    itemsNameContainer.appendChild(p);
+   return totalPrice;
 
 }
 
-    document.getElementById('coupon-btn').addEventListener('click', function(){
-        const inputField = document.getElementById('coupon-field');
-        const coupon = inputField.value;
-        if(coupon === 'SELL200'){
-            
-        }
-    })
+document.getElementById('coupon-btn').addEventListener('click', function(){
+    const totalDiscountPrice = document.getElementById('discount-price')
+    const totalElementText = document.getElementById('total-discount')
 
+    const totalPriceElement = document.getElementById('total-price')
+    const totalPriceString = totalPriceElement.innerText;
+    totalPrice = parseFloat(totalPriceString)
+
+    const discount = totalPrice * 20 / 100;
+
+    totalDiscountPrice.innerText = discount;
+
+    const totalDiscount = totalPrice - discount;
+    totalElementText.innerText = totalDiscount
+
+})
+
+document.getElementById('home-btn').addEventListener('click', function(){
+    location.reload();
+})
+
+// function my_modal_5(){
+//     document.getElementById('my_modal_5').style.display = ''
+// }

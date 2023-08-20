@@ -552,16 +552,51 @@
                 <div class="border-t border-b text-lg font-medium mt-4 p-4">
                   <p>Total price: <span id="total-price">00</span>TK</p>
                   <p>Discount: <span id="discount-price">00</span>TK</p>
-                  <p>Total: <span>00</span>TK</p>
+                  <p>Total: <span id="total-discount">00</span>TK</p>
                 </div>
                 <div class="card-actions my-2 justify-center items-center">
                   <button
                     id="make-purchase-btn"
+                    onclick="my_modal_5.showModal()"
                     class="btn bg-[#E527B2] hover:bg-[#fd44aa] text-white px-6"
                     disabled
                   >
                     Make Purchase
                   </button>
+                  <!-- modal  -->
+                  <!-- Open the modal using ID.showModal() method -->
+                  <dialog
+                    id="my_modal_5"
+                    class="modal modal-bottom sm:modal-middle"
+                  >
+                    <div
+                      method="dialog"
+                      class="card w-96 bg-base-100 shadow-xl modal-box"
+                    >
+                      <figure class="px-10 pt-10">
+                        <img
+                          src="./images/congo.png"
+                          alt="Shoes"
+                          class="rounded-xl"
+                        />
+                      </figure>
+                      <div class="card-body items-center text-center p-0">
+                        <h2 class="card-title text-3xl mt-4">
+                          Congratulations
+                        </h2>
+                        <p class="mb-6">Your Purchase the product</p>
+                        <div class="card-actions">
+                          <button
+                            id="home-btn"
+                            class="btn bg-[#E527B2] hover:bg-[#fd44aa] text-white px-6"
+                          >
+                            Go Home
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </dialog>
+                  <!-- modal  -->
                 </div>
               </div>
             </div>
