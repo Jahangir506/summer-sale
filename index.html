@@ -66,13 +66,15 @@
     </header>
     <main>
       <!-- card container  -->
-      <section class="container mx-auto flex mt-24 pb-44">
+      <section
+        class="container mx-auto flex flex-col lg:flex-row mt-0 lg:mt-24 pb-14 lg:pb-44"
+      >
         <!-- card items section  -->
-        <div>
+        <div class="px-6 mx-auto">
           <!-- kitchenware  -->
-          <div>
+          <div class="mt-14">
             <h2 class="mb-4 text-3xl font-semibold">Kitchenware</h2>
-            <div class="grid grid-cols-4 gap-96">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-10 lg:gap-96">
               <div>
                 <div class="card w-96 bg-base-100 shadow-md">
                   <figure class="px-10 pt-10 bg-slate-300 m-5">
@@ -207,7 +209,7 @@
           <!-- sportswear  -->
           <div class="mt-14">
             <h2 class="mb-4 text-3xl font-semibold">Kitchenware</h2>
-            <div class="grid grid-cols-4 gap-96">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-10 lg:gap-96">
               <div>
                 <div class="card w-96 bg-base-100 shadow-md">
                   <figure class="px-10 pt-10 bg-slate-300 m-5">
@@ -342,7 +344,7 @@
           <!-- furniture  -->
           <div class="mt-14">
             <h2 class="mb-4 text-3xl font-semibold">Kitchenware</h2>
-            <div class="grid grid-cols-4 gap-96">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-10 lg:gap-96">
               <div>
                 <div class="card w-96 bg-base-100 shadow-md">
                   <figure class="px-10 pt-10 bg-slate-300 m-5">
@@ -476,26 +478,47 @@
           </div>
         </div>
         <!-- card details and modify -->
-        <div class="mt-14">
-          <div>
+        <div class="px-6 mx-auto">
+          <div class="mt-28">
             <div class="card w-80 bg-base-100 shadow-md py-6">
-              <h3 class="ml-5 mb-1.5 font-medium">Have coupon?</h3>
+              <h3 class="ml-5 mb-1.5 text-lg font-medium">Have coupon?</h3>
               <div class="card-actions justify-center items-center">
                 <input
                   type="text"
                   placeholder="Coupon code"
-                  class="input input-secondary input-md focus:outline-none border-r-0 py-[-1px] rounded rounded-r-none mr-[-10px] w-52 max-w-xs"
+                  class="input input-secondary input-md py focus:outline-none border-r-0 py-[-1px] rounded rounded-r-none mr-[-10px] w-52 max-w-xs"
                 />
                 <button
-                  class="btn bg-[#E527B2] text-white py-6 border-l-0 rounded-l-none ml-0"
+                  class="btn bg-[#E527B2] hover:bg-[#fd44aa] text-white border-l-0 rounded-l-none ml-0"
                 >
                   Apply
                 </button>
               </div>
             </div>
-            <div
-              class="card w-80 bg-base-100 shadow-md py-6 mt-4 h-[450px]"
-            ></div>
+            <div class="card w-80 bg-base-100 shadow-md py-6 mt-4 h-[450px]">
+              <!-- card items list  -->
+              <div>
+                <h4 class="card-ttile text-center text-xl font-medium">
+                  <span class="border-b-2">Card Items</span>
+                </h4>
+                <div class="p-4 text-xl font-medium"></div>
+              </div>
+              <!-- calculation  -->
+              <div class="card-body justify-end py-0">
+                <div class="border-t border-b text-lg font-medium mt-4 p-4">
+                  <p>Total price: <span>00</span>TK</p>
+                  <p>Discount: <span>00</span>TK</p>
+                  <p>Total: <span>00</span>TK</p>
+                </div>
+                <div class="card-actions my-2 justify-center items-center">
+                  <button
+                    class="btn bg-[#E527B2] hover:bg-[#fd44aa] text-white px-6"
+                  >
+                    Make Purchase
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
