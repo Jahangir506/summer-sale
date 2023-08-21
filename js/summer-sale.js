@@ -14,7 +14,7 @@ function handleClickCardBody(cardBodyClick){
 
    if(total > 0){
     makePurchaseBtn.removeAttribute('disabled')
-    if(total > 200){
+    if(total >=  200){
         couponBtn.removeAttribute('disabled')
     }
    }else{
@@ -49,13 +49,14 @@ document.getElementById('coupon-btn').addEventListener('click', function(){
     const discountTwoDecimal = totalPrice * 20 / 100;
     const discountString = discountTwoDecimal.toFixed(2)
     const discount = parseFloat(discountString)
+
     const totalDiscount = totalPrice - discount;
 
     if(couponField.value === '' ){
         alert('Use the discount code from above for 20% discount')
     }
     else if(couponField.value !== 'SELL200' ){
-        alert('Your coupon code is wrong, Please type  correct coupon code')
+        alert('Your promo code is wrong, Please type correct promo code')
         couponField.value = '';
     }else {
          discountPrice.innerText = discount.toFixed(2);

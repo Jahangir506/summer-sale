@@ -5,3 +5,4 @@ function getElementById (elementId){
     return couponCode;
 }
 
+
