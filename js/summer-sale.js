@@ -6,12 +6,14 @@ function handleClickCardBody(cardBodyClick){
     totalPrice = parseFloat(totalPriceString)
 
     const makePurchaseBtn = document.getElementById('make-purchase-btn')
-    const totalDiscountPrice = document.getElementById('total-discount')
+    
     const couponBtn = document.getElementById('coupon-btn')
+
+    const totalDiscountPrice = document.getElementById('total-discount')
 
    const itemPrice =  cardBodyClick.parentNode.childNodes[1].childNodes[3].childNodes[5].innerText.split(" ")[0]
    const total = totalPrice + parseFloat(itemPrice)
-   totalPriceElement.innerText = total;
+   totalPriceElement.innerText = total.toFixed(2);
    totalDiscountPrice.innerText = total;
 
    if(total > 0){
@@ -50,28 +52,26 @@ document.getElementById('coupon-btn').addEventListener('click', function(){
     const totalPriceString = totalPriceElement.innerText;
     totalPrice = parseFloat(totalPriceString)
 
-    if(couponField.value === ''){
-        alert('20% discount er jonno opor theke discount code ti use koro')
-    }
-
     const discountTwoDecimal = totalPrice * 20 / 100;
     const discountString = discountTwoDecimal.toFixed(2)
-    console.log(discountString);
     const discount = parseFloat(discountString)
-    console.log(discount);
     const totalDiscount = totalPrice - discount;
 
-    if(couponField.value === 'SELL200'){
-        discountPrice.innerText = discount;
-        totalDiscountPrice.innerText = totalDiscount;
+    if(couponField.value === '' ){
+        alert('Use the discount code from above for 20% discount')
+    }
+
+    if(couponField.value === 'SELL200' ){
+        discountPrice.innerText = discount.toFixed(2);
+        totalDiscountPrice.innerText = totalDiscount.toFixed(2);
         couponField.value = '';
+    }
+    
+    else {
+        
     }
 })
 
 document.getElementById('home-btn').addEventListener('click', function(){
     location.reload();
 })
-
-// document.getElementById('reload').addEventListener('click', function(){
-//     location.reload()
-// })
