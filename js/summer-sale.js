@@ -10,6 +10,7 @@ function handleClickCardBody(cardBodyClick){
    const itemPrice =  cardBodyClick.parentNode.childNodes[1].childNodes[3].childNodes[5].innerText.split(" ")[0]
    const total = totalPrice + parseFloat(itemPrice)
    document.getElementById('total-price').innerText = total.toFixed(2);
+   
    totalDiscountPrice.innerText = total;
 
    if(total > 0){
@@ -23,18 +24,23 @@ function handleClickCardBody(cardBodyClick){
    }
 
    const itemName = cardBodyClick.parentNode.childNodes[1].childNodes[3].childNodes[3].innerText;
+
    
    const itemsNameContainer =document.getElementById('items-name-container')
    const count = itemsNameContainer.childElementCount;
    const p = document.createElement('p');
    p.innerHTML = `
        ${count +1}. ${itemName}
-   `
+   `;
+
    if(count < 8){
     itemsNameContainer.appendChild(p);
    }else{
-    alert('Please 8 ta items er opop add kora jabe na')
-    return;
+    alert('Please 8 ta items er opop add kora jabe na');
+    itemsNameContainer.addEventListener('click', function(e){
+       e.target.parentNode.removeChild(e.target);
+    })
+    return 0;
    }
    return totalPrice;
 }
