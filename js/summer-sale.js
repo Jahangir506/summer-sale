@@ -5,20 +5,20 @@ function handleClickCardBody(cardBodyClick){
     const totalPriceString = totalPriceElement.innerText;
     totalPrice = parseFloat(totalPriceString)
 
-
     const makePurchaseBtn = document.getElementById('make-purchase-btn')
-
+    const totalDiscountPrice = document.getElementById('total-discount')
     const couponBtn = document.getElementById('coupon-btn')
 
    const itemPrice =  cardBodyClick.parentNode.childNodes[1].childNodes[3].childNodes[5].innerText.split(" ")[0]
    const total = totalPrice + parseFloat(itemPrice)
    totalPriceElement.innerText = total;
-   
+   totalDiscountPrice.innerText = total;
 
-
-   if(total > 200){
+   if(total > 0){
     makePurchaseBtn.removeAttribute('disabled')
-    couponBtn.removeAttribute('disabled')
+    if(total > 200){
+        couponBtn.removeAttribute('disabled')
+    }
    }else{
     makePurchaseBtn.setAttribute('disabled', true)
     couponBtn.setAttribute('disabled', true)
@@ -32,48 +32,46 @@ function handleClickCardBody(cardBodyClick){
    p.innerHTML = `
        ${count +1}. ${itemName}
    `
-   
-   if(itemsNameContainer.childElementCount < 8){
+   if(count < 8){
     itemsNameContainer.appendChild(p);
    }else{
     alert('Please 8 ta items er opop add kora jabe na')
     return;
    }
-   
-
-
    return totalPrice;
-
 }
 
 document.getElementById('coupon-btn').addEventListener('click', function(){
     const couponField = document.getElementById('coupon-field')
-    const totalDiscountPrice = document.getElementById('discount-price')
-    const totalElementText = document.getElementById('total-discount')
+    const discountPrice = document.getElementById('discount-price')
+    const totalDiscountPrice = document.getElementById('total-discount')
 
     const totalPriceElement = document.getElementById('total-price')
     const totalPriceString = totalPriceElement.innerText;
     totalPrice = parseFloat(totalPriceString)
 
-    const discount = totalPrice * 20 / 100;
+    if(couponField.value === ''){
+        alert('20% discount er jonno opor theke discount code ti use koro')
+    }
+
+    const discountTwoDecimal = totalPrice * 20 / 100;
+    const discountString = discountTwoDecimal.toFixed(2)
+    console.log(discountString);
+    const discount = parseFloat(discountString)
+    console.log(discount);
     const totalDiscount = totalPrice - discount;
 
     if(couponField.value === 'SELL200'){
-        totalDiscountPrice.innerText = discount;
-        totalElementText.innerText = totalDiscount
+        discountPrice.innerText = discount;
+        totalDiscountPrice.innerText = totalDiscount;
         couponField.value = '';
     }
-
 })
 
 document.getElementById('home-btn').addEventListener('click', function(){
     location.reload();
 })
 
-document.getElementById('refresh').addEventListener('click', function(){
-    location.refresh()
-})
-    
-// function my_modal_5(){
-//     document.getElementById('my_modal_5').style.display = ''
-// }
+// document.getElementById('reload').addEventListener('click', function(){
+//     location.reload()
+// })
