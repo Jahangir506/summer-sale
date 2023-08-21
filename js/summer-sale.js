@@ -60,15 +60,13 @@ document.getElementById('coupon-btn').addEventListener('click', function(){
     if(couponField.value === '' ){
         alert('Use the discount code from above for 20% discount')
     }
-
-    if(couponField.value === 'SELL200' ){
-        discountPrice.innerText = discount.toFixed(2);
+    else if(couponField.value !== 'SELL200' ){
+        alert('Your coupon code is wrong, Please type  correct coupon code')
+        
+    }else {
+         discountPrice.innerText = discount.toFixed(2);
         totalDiscountPrice.innerText = totalDiscount.toFixed(2);
         couponField.value = '';
-    }
-    
-    else {
-        
     }
 })
 
