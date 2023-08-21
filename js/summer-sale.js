@@ -1,19 +1,15 @@
 let totalPrice = 0;
 function handleClickCardBody(cardBodyClick){
     totalPrice = 0;
-    const totalPriceElement = document.getElementById('total-price')
-    const totalPriceString = totalPriceElement.innerText;
-    totalPrice = parseFloat(totalPriceString)
+    totalPrice = getElementById('total-price')
 
     const makePurchaseBtn = document.getElementById('make-purchase-btn')
-    
     const couponBtn = document.getElementById('coupon-btn')
-
     const totalDiscountPrice = document.getElementById('total-discount')
 
    const itemPrice =  cardBodyClick.parentNode.childNodes[1].childNodes[3].childNodes[5].innerText.split(" ")[0]
    const total = totalPrice + parseFloat(itemPrice)
-   totalPriceElement.innerText = total.toFixed(2);
+   document.getElementById('total-price').innerText = total.toFixed(2);
    totalDiscountPrice.innerText = total;
 
    if(total > 0){
@@ -48,9 +44,7 @@ document.getElementById('coupon-btn').addEventListener('click', function(){
     const discountPrice = document.getElementById('discount-price')
     const totalDiscountPrice = document.getElementById('total-discount')
 
-    const totalPriceElement = document.getElementById('total-price')
-    const totalPriceString = totalPriceElement.innerText;
-    totalPrice = parseFloat(totalPriceString)
+    totalPrice = getElementById('total-price')
 
     const discountTwoDecimal = totalPrice * 20 / 100;
     const discountString = discountTwoDecimal.toFixed(2)
@@ -62,7 +56,7 @@ document.getElementById('coupon-btn').addEventListener('click', function(){
     }
     else if(couponField.value !== 'SELL200' ){
         alert('Your coupon code is wrong, Please type  correct coupon code')
-        
+        couponField.value = '';
     }else {
          discountPrice.innerText = discount.toFixed(2);
         totalDiscountPrice.innerText = totalDiscount.toFixed(2);
