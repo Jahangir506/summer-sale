@@ -4,5 +4,3 @@ function getElementById (elementId){
     const couponCode = parseFloat(textElementString)
     return couponCode;
 }
-
-
